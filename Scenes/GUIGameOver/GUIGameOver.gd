@@ -1,6 +1,7 @@
-extends CanvasLayer
+extends VBoxContainer
 
-signal press_return
+func _ready():
+	$Button.grab_focus()
 
 func _on_button_pressed():
-	press_return.emit()
+	get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")

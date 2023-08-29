@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cujods4vxv1jf"]
+[gd_scene load_steps=5 format=3 uid="uid://did8s1oykvj73"]
 
 [ext_resource type="Theme" uid="uid://b1a2mashtutsw" path="res://Resources/Theme.tres" id="1_0mhx2"]
 [ext_resource type="FontFile" uid="uid://fnepycuccx4v" path="res://Resources/PressStart2P-Regular.ttf" id="1_4hin6"]
@@ -8,10 +8,7 @@
 default_font = ExtResource("1_4hin6")
 default_font_size = 8
 
-[node name="GUIGameOver" type="CanvasLayer"]
-script = ExtResource("2_dyk5g")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="GUIGameOver" type="VBoxContainer"]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.1
@@ -22,18 +19,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 theme = ExtResource("1_0mhx2")
+script = ExtResource("2_dyk5g")
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
 theme = SubResource("Theme_soh2q")
 text = "You lost!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_0mhx2")
 text = "Main Menu"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

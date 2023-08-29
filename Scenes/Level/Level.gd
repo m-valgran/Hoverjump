@@ -15,8 +15,7 @@ func _process(_delta):
 
 func draw_game_over():
 	var gui_game_over_instance = gui_game_over_scene.instantiate()
-	self.add_child(gui_game_over_instance)
-	$GUIGameOver.press_return.connect(return_to_menu)
+	$GUI.add_child(gui_game_over_instance)
 
 func draw_score():
 	$GUI/Label.text = str(10000000 + $Player.score).substr(1)
@@ -25,7 +24,8 @@ func spawn_obstacle():
 	var x_pos = randi_range(500,1000)
 	if can_spawn_obstacle:
 		var obstacle_instance = obstacle_scene.instantiate()
-		obstacle_instance.position = Vector2($Player.position.x + x_pos, $Player.initial_y_pos+3)
+		obstacle_instance.position = Vector2($Player.position.x + x_pos, 
+		$Player.initial_y_pos + 4)
 		self.add_child(obstacle_instance)
 		can_spawn_obstacle = false
 		
@@ -33,6 +33,3 @@ func destroy_obstacle():
 	if $Obstacle and $Obstacle.position.x < $Player.position.x-400:
 		$Obstacle.queue_free()
 		can_spawn_obstacle = true
-
-func return_to_menu():
-	get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")

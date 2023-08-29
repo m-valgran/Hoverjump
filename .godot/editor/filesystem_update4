@@ -1,8 +1,6 @@
-res://Scenes/GUIGameOver/GUIGameOver.tscn
-res://Scenes/Level/Level.tscn
-res://Scenes/Menu/Menu.tscn
-res://Resources/Theme.tres
-res://Scenes/GUIGameOver/GUIGameOver.gd
 res://Scenes/Level/Level.gd
-res://Scenes/Player/Player.gd
-res://Scenes/Player/Player.tscn
+res://Resources/Theme.tres
+res://Autoloads/SignalBus.gd
+res://Scenes/GUIGameOver/GUIGameOver.gd
+res://Scenes/GUIGameOver/GUIGameOver.tscn
+res://Scenes/Menu/Menu.gd

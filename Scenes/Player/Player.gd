@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var initial_y_pos
+@onready var initial_y_pos = position.y
 var jump_max_distance = 40
 var jump_force = 5
 var jump_distance = 0
@@ -12,7 +12,6 @@ var score = 0
 signal dead
 
 func _ready():
-	initial_y_pos = position.y
 	$AnimationPlayer.play("Moving")
 
 func _process(delta):
@@ -47,10 +46,6 @@ func _on_hurtbox_area_entered(_area):
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	dead.emit()
 	is_dead = true
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "Exploding":
-		self.hide()
 
 func _on_timer_speed_timeout():
 	movement_speed += 10
