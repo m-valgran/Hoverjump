@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cokbojtcwnqkw"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Level.gd" id="1_f5s4q"]
+[ext_resource type="Texture2D" uid="uid://cx8rm1085lllw" path="res://Scenes/Level/Space.png" id="2_m4bdi"]
+[ext_resource type="Texture2D" uid="uid://dhlicnyu0epep" path="res://Scenes/Level/Hills.png" id="3_og03k"]
+[ext_resource type="Texture2D" uid="uid://p3om8afqbycy" path="res://Scenes/Level/Ground.png" id="4_686ej"]
+[ext_resource type="PackedScene" uid="uid://e8it0n8ej5nj" path="res://Scenes/Player/Player.tscn" id="5_siewb"]
+[ext_resource type="FontFile" uid="uid://fnepycuccx4v" path="res://Resources/PressStart2P-Regular.ttf" id="6_r3mal"]
+
+[sub_resource type="Theme" id="Theme_njieb"]
+default_font = ExtResource("6_r3mal")
+default_font_size = 8
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_f5s4q")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayerSpace" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerSpace"]
+texture_filter = 1
+texture = ExtResource("2_m4bdi")
+offset = Vector2(130, 100)
+
+[node name="ParallaxLayerHills" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerHills"]
+texture_filter = 1
+texture = ExtResource("3_og03k")
+offset = Vector2(0, 120)
+
+[node name="ParallaxLayerGround" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerGround"]
+texture_filter = 1
+texture = ExtResource("4_686ej")
+offset = Vector2(0, 184)
+
+[node name="Player" parent="." instance=ExtResource("5_siewb")]
+position = Vector2(28, 176)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="GUI"]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.1
+offset_right = 43.0
+offset_bottom = 26.0
+theme = SubResource("Theme_njieb")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvi7fcf5c0b55"]
+
+[ext_resource type="Texture2D" uid="uid://dy4nkq1x50agq" path="res://Scenes/Obstacle/Obstacle.png" id="1_ep2px"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67m1a"]
+size = Vector2(16, 32)
+
+[node name="Obstacle" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_ep2px")
+offset = Vector2(0, -16)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_67m1a")

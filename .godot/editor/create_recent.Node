@@ -1,0 +1,17 @@
+VBoxContainer
+CanvasLayer
+Button
+Label
+TextureRect
+HBoxContainer
+BoxContainer
+Container
+Sprite2D
+ParallaxLayer
+Control
+Timer
+ParallaxBackground
+CollisionShape2D
+Area2D
+AnimationPlayer
+Camera2D
