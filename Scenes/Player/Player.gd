@@ -10,8 +10,6 @@ var movement_speed = 100
 var is_dead = false
 var score = 0
 signal dead
-signal checkpoint_activate
-signal score_changed(value)
 
 func _ready():
 	initial_y_pos = position.y
@@ -25,7 +23,6 @@ func move(delta):
 	if !is_dead:
 		position.x += movement_speed * delta
 		score += 1
-		score_changed.emit(score)
 
 func jump(delta):
 	if Input.is_action_just_pressed("ui_up") and !is_jumping and !is_dead:
